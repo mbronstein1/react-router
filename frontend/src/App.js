@@ -48,9 +48,18 @@ const router = createBrowserRouter([
             // as opposed to useEffect which is AFTER page renders
             loader: eventsLoader,
           },
-          { path: ':id', element: <EventDetailsPage />, loader: detailsLoader },
+          {
+            path: ':id',
+            // By putting loader on parent, it allows all children to access it
+            // id is necessary when you want child components to access the loader in the parent
+            loader: detailsLoader,
+            id: 'event-detail',
+            children: [
+              { index: true, element: <EventDetailsPage /> },
+              { path: 'edit', element: <EditEventPage /> },
+            ],
+          },
           { path: 'new', element: <NewEventPage /> },
-          { path: ':id/edit', element: <EditEventPage /> },
         ],
       },
     ],

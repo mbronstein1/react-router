@@ -1,10 +1,13 @@
 import React from 'react';
-import { useLoaderData, json } from 'react-router-dom';
+import { useRouteLoaderData, json } from 'react-router-dom';
 import EventItem from '../components/EventItem';
 
 const EventDetailsPage = () => {
   // const params = useParams();
-  const data = useLoaderData();
+  // const data = useLoaderData();
+
+  // useRouteLoaderData is necessary when child components want access to loader in parent - argument is id defined in App.js
+  const data = useRouteLoaderData('event-detail');
 
   return <EventItem event={data.event} />;
 };
