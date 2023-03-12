@@ -29,6 +29,10 @@ export const action = async ({ request }) => {
     },
   });
 
+  if (response.status === 422) {
+    return response;
+  }
+
   if (!response.ok) {
     throw json({ message: 'Failed to save event' }, { status: 500 });
   }

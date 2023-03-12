@@ -1,10 +1,14 @@
-import { useNavigate, Form, useNavigation } from 'react-router-dom';
+import { useNavigate, Form, useNavigation, useActionData } from 'react-router-dom';
 
 import classes from './EventForm.module.css';
 
 function EventForm({ method, event }) {
   const navigate = useNavigate();
   const navigation = useNavigation();
+
+  // returns the response from the action (similar to loader)
+  // in this case the returned response is the error object from the backend
+  const data = useActionData();
 
   const isSubmitting = navigation.state === 'submitting';
 
@@ -15,6 +19,14 @@ function EventForm({ method, event }) {
   return (
     // react-router-dom Form component is required for form actions to be sent correctly
     <Form method='post' className={classes.form}>
+      {/* Validating and displaying error object returned from backend */}
+      {data && data.errors && (
+        <ul>
+          {Object.values(data.errors).map(err => (
+            <li key={err}>{err}</li>
+          ))}
+        </ul>
+      )}
       <p>
         <label htmlFor='title'>Title</label>
         <input id='title' type='text' name='title' required defaultValue={event ? event.title : ''} />
