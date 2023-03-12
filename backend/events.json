@@ -1,11 +1,1 @@
-{
-  "events": [
-    {
-      "id": "e1",
-      "title": "A dummy event",
-      "date": "2023-02-22",
-      "image": "https://blog.hubspot.de/hubfs/Germany/Blog_images/Optimize_Marketing%20Events%20DACH%202021.jpg",
-      "description": "Join this amazing event and connect with fellow developers."
-    }
-  ]
-}
+{"events":[{"title":"Another new event","image":"https://iso.500px.com/wp-content/uploads/2015/03/business_cover.jpeg","date":"2023-03-10","description":"TEst 2","id":"9ebabd5e-0f86-48c6-8338-8ffcf4bf1fda"},{"title":"A new event","image":"https://edit.co.uk/uploads/2016/12/Image-1-Alternatives-to-stock-photography-Thinkstock.jpg","date":"2023-03-16","description":"This is a new event","id":"250b7724-4d08-4934-9a21-086c5af5d4fb"},{"id":"e1","title":"A dummy event","date":"2023-02-22","image":"https://blog.hubspot.de/hubfs/Germany/Blog_images/Optimize_Marketing%20Events%20DACH%202021.jpg","description":"Join this amazing event and connect with fellow developers."}]}
