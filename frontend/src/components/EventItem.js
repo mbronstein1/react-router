@@ -8,6 +8,9 @@ function EventItem({ event }) {
     const proceed = window.confirm('Are you sure?');
 
     if (proceed) {
+      // First argument is the data we want to submit
+      // Second argument is an object with all the properties we could normally set on a form
+      // i.e. method, action, etc
       submit(null, { method: 'delete' });
     }
   }
