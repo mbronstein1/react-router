@@ -23,7 +23,7 @@ const EventsPage = () => {
   // display something before the returned promise is resolved
   return (
     <Suspense fallback={<p style={{ textAlign: 'center' }}>Loading...</p>}>
-      <Await resolve={eventData.loaderEvents}>{events => <EventsList events={events} />}</Await>;
+      <Await resolve={eventData.loaderEvents}>{events => <EventsList events={events} />}</Await>
     </Suspense>
   );
 };
@@ -45,12 +45,14 @@ const loadEvents = async () => {
     throw json({ message: 'Could not fetch events' }, { status: 500 });
   }
 
+  const data = await response.json();
+  return data.events;
+
   // React-router-dom automatically parses and returns response w/ loader
   // so there is no need to parse it into json and return the data
   // you can just return the response you get from the fetch api as is
+  // i.e.
   // return response;
-  const data = await response.json();
-  return data.events;
 
   // Instead of
   // const data = await response.json();
